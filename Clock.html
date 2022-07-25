@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <!-- STYLE -->
+    <style>
+        body{
+            font-family: sans-serif;
+            
+        }
+        #date{
+            max-width: 700px;
+            font-size: 50px;
+            color: #000000;
+            background: linear-gradient(180deg, rgba(239,35,60,1) 0%, rgba(237,242,244,1) 35%);;
+            text-align: center;
+        }
+        #clock{
+            margin-top: 200px;
+            max-width: 700px;
+            font-size: 150px;
+            color: #89fc00;
+            background:  linear-gradient(180deg, rgba(33,37,41,1) 30%, rgba(0,0,0,1) 90%);
+            text-align: center;
+        }
+    </style>
+    <!-- SCRIPT FOR DATE -->
+    <script>
+    function clockrate(){
+        var fulldate = new Date();
+        var hour = fulldate.getHours();
+        if (hour < 10){
+            hour= "0"+hour;
+        }
+        var minutes = fulldate.getMinutes();
+        if (minutes < 10){
+            minutes= "0"+minutes;
+        }
+        var seconds = fulldate.getSeconds();
+        if (seconds < 10){
+            seconds= "0"+seconds;
+        }
+        document.getElementById("clock").innerHTML= hour + ":"+ minutes + ":"+ seconds;
+        setTimeout("clockrate()",1000);
+    }
+
+</script>
+    <!-- END OF SCRIPT FOR DATE -->
+    
+    <!-- SCRIPT FOR CURRENT TIME -->
+    <script type="text/javascript">
+    function calendar(){
+        var fulldate = new Date();
+        var day = fulldate.getDate();
+        if (day < 10){
+            day= "0"+day;
+        }
+        var month = fulldate.getMonth() + 1;
+        if (month < 10){
+            month= "0"+month;
+        }
+        var year = fulldate.getFullYear();
+        var weekday = fulldate.getDay();
+        switch(weekday){
+            case 0:
+                var today = "Sunday";
+                break;
+            case 1:
+                var today = "Monday";
+                break;
+            case 2:
+                var today = "Tuesday";
+                break;
+            case 3:
+                var today = "Wednesday";
+                break;
+            case 4:
+                var today = "Thursday";
+                break;
+            case 5:
+                var today = "Friday";
+                break;
+            case 6:
+                var today = "Saturday";
+    }
+    document.getElementById("date").innerHTML= "today is "+ today + " "+ day +" "+ month +" "+ year;
+    setTimeout("calendar()",3600000);
+    }
+</script>
+    <!-- END OF SCRIPT FOR CURRENT TIME -->
+</head>
+<body onload="calendar();clockrate();">
+<div id ="date" > </div>
+<div id="clock"> </div>
+
+
+
+
+</body>
+</html>
