@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <script>
+        
+    var correct = Math.floor(Math.random() * 101);
+    function guess(){
+        var check = document.getElementById("number").value;
+        if (check < correct) document.getElementById("result").innerHTML= "Too little, try to enter a larger number"
+        else if (check > correct) document.getElementById("result").innerHTML= "Too much, try to enter a smaller number"
+        else if (check == correct) document.getElementById("result").innerHTML="Congratulations you guessed the number"
+    }
+    </script>
+</head>
+<body>
+    <input type=number id="number"/>
+    <input type=submit value="check" onclick="guess();"/>
+    <div id=result></div>
+</body>
+</html>
